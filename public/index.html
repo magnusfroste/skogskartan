@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kotten och skogskartan – skala och avstånd (åk 4–6)</title>
+<meta name="description" content="Läs skalan på Kottens skogskarta, räkna rutorna längs vägen och räkna ut hur långt det är i verkligheten. Tränar skala vid förminskning och förstoring i elevnära situationer, matematik åk 4–6. Gratis, ingen inloggning.">
+<meta name="theme-color" content="#faf7f2">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:title" content="Kotten och skogskartan">
+<meta property="og:description" content="Räkna rutorna på kartan och räkna ut avståndet i skogen. Skala – matematik åk 4–6.">
+<meta property="og:image" content="og.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="styles.css">
+<script src="https://www.skolappar.com/kotten.js" defer></script>
+</head>
+<body>
+
+<div id="startskarm">
+  <div class="sk-inner">
+    <img class="sk-ikon" src="icon-192.png" alt="" width="96" height="96">
+    <h1>Kotten och skogskartan</h1>
+    <p class="sk-tagline">Räkna rutorna – räkna ut hur långt det är i skogen.</p>
+    <div class="sk-taggar">
+      <span>Matematik</span><span>Åk 4–6</span><span>Skala</span>
+    </div>
+    <button class="sk-play" id="spela" aria-label="Spela Kotten och skogskartan">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+      Spela
+    </button>
+    <p class="sk-fot">Gratis · ingen inloggning · skolappar.com</p>
+    <details class="sk-laroplan">
+      <summary>Läroplanskoppling (Lgr22)</summary>
+      <p><b>Matematik, åk 4–6, centralt innehåll:</b> ”Skala vid förminskning och förstoring samt användning av skala i elevnära situationer.”</p>
+      <p>Kartan över skogen är ritad i skala: en ruta på kartan är till exempel tio meter i skogen. Barnet räknar rutorna längs vägen och räknar ut den verkliga längden – först med rak väg och tio meter per ruta, sedan med ett hörn, sedan fem meter och hundra meter per ruta. På sista nivån vänds frågan: avståndet i meter är givet, och barnet väljer den karta som är ritad i rätt skala. Rätt svar bekräftas med siffra och tal; efter två försök räknar appen rutorna högt tillsammans med barnet. Ingen text måste läsas – skalan står som en ruta med meter bredvid. Källa: Skolverket, läroplanen för grundskolan (Lgr22).</p>
+    </details>
+  </div>
+</div>
+
+<main id="spel" hidden>
+  <header class="hud">
+    <div class="niva" id="niva" aria-label="nivå"></div>
+    <div class="stjarnor" id="stjarnor" aria-label="stjärnor"></div>
+    <button class="ikon-knapp" id="ljud" aria-label="Ljud på eller av">
+      <svg viewBox="0 0 24 24" aria-hidden="true" id="ljudikon"></svg>
+    </button>
+  </header>
+
+  <div class="fraga" id="fraga">
+    <div class="skalbadge" id="skalbadge">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="4" width="32" height="32" rx="6"/></svg>
+      <span id="skaltext">1 ruta = 10 m</span>
+    </div>
+    <p id="fragetext">Hur långt är vägen?</p>
+  </div>
+
+  <section class="brada" id="brada"></section>
+
+  <footer class="svar" id="svar"></footer>
+</main>
+
+<div id="overlay" hidden>
+  <div class="ov-inner">
+    <img class="ov-kotte" id="ov-kotte" alt="" width="112" height="112">
+    <div class="ov-stjarnor" id="ov-stjarnor"></div>
+    <h2 id="ov-titel"></h2>
+    <div class="ov-knappar">
+      <button class="knapp stor" id="ov-nasta"></button>
+      <button class="knapp tyst" id="ov-om" hidden>Spela igen</button>
+    </div>
+  </div>
+</div>
+
+<script src="kartor.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

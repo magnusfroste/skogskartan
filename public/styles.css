@@ -1,0 +1,141 @@
+:root{
+  --papper:#faf7f2;
+  --papper-mork:#f1ece1;
+  --brada:#e8ecdd;
+  --kant:#ddd4c2;
+  --text:#3b2f24;
+  --text-mjuk:#6f6153;
+  --accent:#e0a13a;
+  --accent-mork:#b87c1f;
+  --gron:#6f9a5a;
+  --skal:#8a5a3b;
+  --ratt:#4f8a4a;
+  --ratt-bg:#e2efdc;
+  --fel:#b8564a;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none !important}
+html,body{
+  margin:0;padding:0;height:100%;overflow:hidden;
+  background:var(--papper);color:var(--text);
+  font-family:"Avenir Next","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  touch-action:manipulation;overscroll-behavior:none;
+  -webkit-text-size-adjust:100%;
+}
+body{display:flex;flex-direction:column}
+
+/* ---------- startskärm ---------- */
+#startskarm{
+  position:fixed;inset:0;z-index:30;display:flex;align-items:center;justify-content:center;
+  background:var(--papper);padding:16px;overflow:auto;
+}
+.sk-inner{max-width:560px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px}
+.sk-ikon{width:84px;height:84px;border-radius:20px}
+h1{font-size:clamp(22px,4.4vw,32px);margin:0;font-weight:800;letter-spacing:-.2px}
+.sk-tagline{margin:0;font-size:clamp(15px,2.4vw,18px);color:var(--text-mjuk)}
+.sk-taggar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.sk-taggar span{background:var(--papper-mork);border:1px solid var(--kant);border-radius:999px;padding:5px 12px;font-size:14px;color:var(--text-mjuk)}
+.sk-play{
+  margin-top:6px;display:inline-flex;align-items:center;gap:10px;border:0;border-radius:999px;
+  background:var(--accent);color:#3b2a10;font-weight:800;font-size:22px;padding:16px 34px;
+  min-height:64px;min-width:200px;justify-content:center;box-shadow:0 3px 0 var(--accent-mork);cursor:pointer;
+}
+.sk-play svg{width:24px;height:24px;fill:currentColor}
+.sk-play:active{transform:translateY(2px);box-shadow:0 1px 0 var(--accent-mork)}
+.sk-fot{font-size:13px;color:var(--text-mjuk);margin:4px 0 0}
+.sk-laroplan{max-width:520px;text-align:left;font-size:14px;color:var(--text-mjuk);line-height:1.45}
+.sk-laroplan summary{cursor:pointer;font-weight:600;color:var(--text)}
+.sk-laroplan p{margin:8px 0}
+
+/* ---------- spelet ---------- */
+#spel{flex:1;min-height:0;display:flex;flex-direction:column;padding:8px 10px 8px;gap:8px}
+.hud{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:40px}
+.niva{display:flex;gap:6px;align-items:center}
+.niva i{width:12px;height:12px;border-radius:50%;background:#e4dccc;display:block}
+.niva i.klar{background:var(--accent)}
+.stjarnor{display:flex;gap:5px;align-items:center;font-weight:700;color:var(--accent-mork);font-size:18px}
+.stjarnor svg{width:22px;height:22px;fill:var(--accent)}
+.ikon-knapp{
+  width:44px;height:44px;border-radius:12px;border:1px solid var(--kant);background:var(--papper-mork);
+  color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;
+}
+.ikon-knapp svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ikon-knapp svg path[fill]{fill:currentColor;stroke:none}
+
+.fraga{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.skabadge,.skalbadge{display:flex;align-items:center;gap:8px;background:var(--papper-mork);border:1px solid var(--kant);border-radius:14px;padding:6px 14px 6px 8px}
+.skalbadge svg{width:34px;height:34px}
+.skalbadge rect{fill:#fff;stroke:var(--skal);stroke-width:3}
+.skalbadge span{font-size:clamp(17px,2.2vw,21px);font-weight:700;color:var(--text)}
+#fragetext{margin:0;font-size:clamp(18px,2.6vw,24px);font-weight:700}
+
+.brada{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;gap:14px;position:relative}
+.brada svg.karta{width:100%;height:100%;max-height:100%;display:block}
+.brada.kort-lage{gap:clamp(8px,1.6vw,20px)}
+
+.svar{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1.6vw,14px);align-items:stretch}
+.svar.kort-svar{grid-template-columns:repeat(3,1fr)}
+.svar-knapp{
+  border:0;border-radius:18px;background:#fff;box-shadow:0 3px 0 var(--kant),inset 0 0 0 2px var(--kant);
+  color:var(--text);font-weight:800;font-size:clamp(22px,3.4vw,32px);
+  min-height:clamp(64px,11vh,96px);cursor:pointer;transition:transform .07s,background .15s;
+  display:flex;align-items:center;justify-content:center;
+}
+.svar-knapp:active{transform:translateY(3px);box-shadow:0 0 0 var(--kant),inset 0 0 0 2px var(--kant)}
+.svar-knapp.ratt{background:var(--ratt-bg);box-shadow:0 3px 0 #b6d3ac,inset 0 0 0 3px var(--ratt);color:#2f5b2b}
+.svar-knapp.fel{background:#f7e4e0;box-shadow:0 3px 0 #e3c3bc,inset 0 0 0 2px var(--fel);color:var(--fel)}
+.svar-knapp.andar{animation:andar 1.1s ease-in-out infinite}
+@keyframes andar{0%,100%{transform:scale(1)}50%{transform:scale(1.045);box-shadow:0 3px 0 var(--kant),0 0 0 8px rgba(224,161,58,.3)}}
+
+/* kartkort (nivå 5) */
+.kortknapp{
+  border:0;background:transparent;padding:0;cursor:pointer;flex:1 1 0;min-width:0;max-width:340px;
+  display:flex;align-items:center;justify-content:center;
+}
+.kortknapp svg{width:100%;height:100%;display:block;border-radius:18px;background:var(--papper-mork);
+  box-shadow:0 0 0 2px var(--kant);transition:box-shadow .15s,transform .07s}
+.kortknapp:active svg{transform:scale(.985)}
+.kortknapp.ratt svg{box-shadow:0 0 0 4px var(--ratt)}
+.kortknapp.fel svg{box-shadow:0 0 0 4px var(--fel)}
+.kortknapp.andar svg{animation:andar-kort 1.1s ease-in-out infinite}
+@keyframes andar-kort{0%,100%{box-shadow:0 0 0 2px var(--kant)}50%{box-shadow:0 0 0 7px rgba(224,161,58,.45)}}
+
+/* ---------- slut på nivå ---------- */
+#overlay{position:fixed;inset:0;z-index:40;background:var(--papper);display:flex;align-items:center;justify-content:center;padding:20px}
+.ov-inner{text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;max-width:520px}
+.ov-kotte{width:104px;height:104px}
+.ov-stjarnor{display:flex;gap:6px;font-size:0}
+.ov-stjarnor i{width:34px;height:34px;display:block;background:var(--accent);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.ov-stjarnor i.tom{background:#e4dccc}
+#ov-titel{font-size:clamp(21px,3.6vw,28px);margin:0}
+.ov-knappar{display:flex;flex-direction:column;gap:10px;width:min(320px,80vw)}
+.knapp{border:0;border-radius:999px;font-size:20px;font-weight:700;padding:15px 20px;min-height:60px;cursor:pointer}
+.knapp.stor{background:var(--accent);color:#3b2a10;box-shadow:0 3px 0 var(--accent-mork)}
+.knapp.tyst{background:var(--papper-mork);color:var(--text);box-shadow:0 3px 0 var(--kant)}
+
+/* ---------- liggande: karta till vänster, svar till höger ---------- */
+@media (min-aspect-ratio: 1/1){
+  #spel{display:grid;grid-template-columns:1fr minmax(200px,26vw);grid-template-rows:auto auto 1fr;
+    grid-template-areas:"hud hud" "fraga fraga" "brada svar";column-gap:16px}
+  .hud{grid-area:hud}
+  .fraga{grid-area:fraga;justify-content:flex-start}
+  .brada{grid-area:brada}
+  .svar{grid-area:svar;grid-template-columns:1fr;grid-auto-rows:1fr;align-content:stretch}
+  .svar.kort-svar{grid-template-columns:1fr}
+  .brada.kort-lage{flex-direction:column}
+}
+
+@media (max-aspect-ratio: 3/4){
+  .hud{min-height:34px}
+  .svar-knapp{min-height:clamp(60px,9vh,80px)}
+}
+
+/* stående: kartkorten staplas så rutorna syns */
+@media (max-aspect-ratio: 1/1){
+  .brada.kort-lage{flex-direction:column;gap:clamp(6px,1.4vh,14px)}
+  .kortknapp{flex:1 1 0;width:100%;max-width:560px;min-height:0;max-height:34%}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .andar,.svar-knapp,.kortknapp svg{animation:none !important;transition:none !important}
+}
