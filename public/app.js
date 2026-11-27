@@ -48,16 +48,8 @@
   var senasteTal = 0;
   function sag(text) {
           try { if (window.__rost && window.__rost(text, true)) return; } catch (e) { }
-    if (!S.ljud || !('speechSynthesis' in window)) return;
-    try {
-      var nu = Date.now();
-      if (nu - senasteTal < 220) return;
-      senasteTal = nu;
-      window.speechSynthesis.cancel();
-      var u = new SpeechSynthesisUtterance(text);
-      u.lang = 'sv-SE'; u.rate = 0.98; u.pitch = 1.05;
-      window.speechSynthesis.speak(u);
-    } catch (e) {}
+    if (!S.ljud) return;
+        console.warn('saknar mp3:', text);
   }
   function ritaLjudikon() {
     el.ljudikon.innerHTML = S.ljud
@@ -380,7 +372,7 @@
   el.ljud.addEventListener('click', function () {
     S.ljud = !S.ljud;
     if (!S.ljud) {
-      try { window.speechSynthesis.cancel(); } catch (e) {}
+      window.__rostStopp();
       if (window.skolappar && window.skolappar.event) {
         try { window.skolappar.event('sound_off'); } catch (e) {}
       }
